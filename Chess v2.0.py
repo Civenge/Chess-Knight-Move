@@ -7,14 +7,14 @@
 import random
 from random import seed
 from random import randint
-seed() ####change to seed(0) once program works
+seed() #Sets the random seed.  Use defined value for testing otherwise leave blank.
 
 # #8 x 8 board can be represented in an x,y grid system counting from 0 to 7
 # #Knight starts in a random location using the randint function
 
 #Knight moves in a random move using one of: (2,1),(-2,1),(2,-1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2)
 knight_move = ((2,1),(-2,1),(2,-1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2))
-number_runs = 1000####change to 1000 once program works
+number_runs = 1000#Set to however many runs you want to do.
 total = 0
 
 for moves in range(number_runs):
