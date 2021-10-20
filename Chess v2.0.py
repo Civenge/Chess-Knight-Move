@@ -17,11 +17,13 @@ knight_move = ((2,1),(-2,1),(2,-1),(-2,-1),(1,2),(-1,2),(1,-2),(-1,-2))
 number_runs = 1000#Set to however many runs you want to do.
 total = 0
 
+#Begin the test loop
 for moves in range(number_runs):
     # 8 x 8 board can be represented in an x,y grid system counting from 0 to 7
-    x = randint(0, 7)
-    y = randint(0, 7)
+    x = randint(0,7)
+    y = randint(0,7)
     moves = 0
+    #Begin the knight_choice loop
     for runs in range(100):  #Would work better to use something until failure instead of a range.
 
         # Print starting point for testing.
@@ -32,38 +34,16 @@ for moves in range(number_runs):
         knight_choice = random.choice(knight_move)
         print("Knight move= ",knight_choice)
         # list.append(moves+1)
-    #Create an if statement to check x and y against initial parameters x,y > 7 or x,y < 0; else add the knight_choice
-        if x > 7:
-
-            print("Failed at move= ", moves+1)
-            print("")
-            total = total + moves + 1
-            break
-        elif y > 7:
-
-            print("Failed at move= ", moves+1)
-            print("")
-            total = total + moves + 1
-            break
-        elif x < 0:
-
-            print("Failed at move= ", moves+1)
-            print("")
-            total = total + moves + 1
-            break
-        elif y < 0:
-
-            print("Failed at move= ", moves+1)
-            print("")
-            total = total + moves + 1
-            break
-        else:
-
-            x = x + knight_choice[0]
-            y = y + knight_choice[1]
-
         # Add 1 to moves if it doesn't fail
         moves = moves + 1
+        x = x + knight_choice[0]
+        y = y + knight_choice[1]
+    #Create an if statement to check x and y against initial parameters x,y > 7 or x,y < 0; else add the knight_choice
+        if x > 7 or y > 7 or x < 0 or y < 0:
+            print("Failed at move= ", moves)
+            print("")
+            total = total + moves
+            break
 
 #Count the number of Knight moves on each run until it moves outside of the board grid
 #Run the tests 1000 times tracking the number of moves to fall outside on each run (or maybe a running total?)
