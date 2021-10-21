@@ -24,7 +24,7 @@ for moves in range(number_runs):
     y = randint(0,7)
     moves = 0
     #Begin the knight_choice loop
-    for runs in range(100):  #Would work better to use something until failure instead of a range.
+    while True:
 
         # Print starting point for testing.
         print("Starting x= ", x)
@@ -50,6 +50,3 @@ for moves in range(number_runs):
 #Average the number of moves from all the tests
 print("Total: ", total)
 print("Average Number of moves: ",float(total/number_runs))
-
-
-
